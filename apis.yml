@@ -5,8 +5,7 @@ url: >2-
 apis:
   - aid: office-of-the-federal-register:office-of-the-federal-register
     name: Office of the Federal Register
-    tags:
-      - API
+    tags: []
     humanURL: https://www.federalregister.gov/developers/documentation/api/v1
     properties:
       - url: https://www.federalregister.gov/developers/documentation/api/v1
