@@ -1,0 +1,632 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Office of the Federal Register API
+  description: Search, browse and learn about the Federal Register. Federal Register 2.0 is the unofficial daily publication
+    for rules, proposed rules, and notices of Federal agencies and organizations, as well as executive orders and other presidential
+    documents.
+  tags:
+  - Office
+  - Of
+  - The
+  - Federal
+  - Register
+  - API
+  created: '2026-05-06'
+  modified: '2026-05-06'
+capability:
+  consumes:
+  - type: http
+    namespace: office-of-the-federal-register
+    baseUri: https://www.federalregister.gov/api/v1
+    description: Office of the Federal Register API HTTP API.
+    resources:
+    - name: documents-json
+      path: /documents.json
+      operations:
+      - name: searchdocuments
+        method: GET
+        description: Search Federal Register Documents
+        inputParameters:
+        - name: per_page
+          in: query
+          type: integer
+          description: Number of results per page (max 1000).
+        - name: page
+          in: query
+          type: integer
+          description: Page number of results.
+        - name: order
+          in: query
+          type: string
+          description: Order of results (relevance, newest, oldest, executive_order_number).
+        - name: conditions[term]
+          in: query
+          type: string
+          description: Full text search term.
+        - name: conditions[publication_date][gte]
+          in: query
+          type: string
+          description: Publication date greater than or equal to (YYYY-MM-DD).
+        - name: conditions[publication_date][lte]
+          in: query
+          type: string
+          description: Publication date less than or equal to (YYYY-MM-DD).
+        - name: conditions[type][]
+          in: query
+          type: string
+          description: Document type (RULE, PRORULE, NOTICE, PRESDOCU).
+        - name: conditions[agencies][]
+          in: query
+          type: string
+          description: Agency slug filter.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: documents-document-number-json
+      path: /documents/{document_number}.json
+      operations:
+      - name: getdocument
+        method: GET
+        description: Fetch a Single Document
+        inputParameters:
+        - name: document_number
+          in: path
+          type: string
+          required: true
+          description: The document number.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: documents-document-numbers-json
+      path: /documents/{document_numbers}.json
+      operations:
+      - name: getdocuments
+        method: GET
+        description: Fetch Multiple Documents
+        inputParameters:
+        - name: document_numbers
+          in: path
+          type: string
+          required: true
+          description: Comma-separated document numbers.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: documents-facets-facet
+      path: /documents/facets/{facet}
+      operations:
+      - name: getdocumentfacets
+        method: GET
+        description: Document Counts By Facet
+        inputParameters:
+        - name: facet
+          in: path
+          type: string
+          required: true
+          description: Facet to aggregate by.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: issues-publication-date-json
+      path: /issues/{publication_date}.json
+      operations:
+      - name: getissue
+        method: GET
+        description: Fetch a Federal Register Issue Table of Contents
+        inputParameters:
+        - name: publication_date
+          in: path
+          type: string
+          required: true
+          description: Publication date (YYYY-MM-DD).
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: public-inspection-documents-json
+      path: /public-inspection-documents.json
+      operations:
+      - name: searchpublicinspectiondocuments
+        method: GET
+        description: Search Public Inspection Documents
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: public-inspection-documents-document-number-json
+      path: /public-inspection-documents/{document_number}.json
+      operations:
+      - name: getpublicinspectiondocument
+        method: GET
+        description: Fetch a Single Public Inspection Document
+        inputParameters:
+        - name: document_number
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: public-inspection-documents-current-json
+      path: /public-inspection-documents/current.json
+      operations:
+      - name: getcurrentpublicinspectiondocuments
+        method: GET
+        description: Fetch Current Public Inspection Documents
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: agencies
+      path: /agencies
+      operations:
+      - name: listagencies
+        method: GET
+        description: List Agencies
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: agencies-slug
+      path: /agencies/{slug}
+      operations:
+      - name: getagency
+        method: GET
+        description: Fetch a Single Agency
+        inputParameters:
+        - name: slug
+          in: path
+          type: string
+          required: true
+          description: The agency slug.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: images-identifier
+      path: /images/{identifier}
+      operations:
+      - name: getimage
+        method: GET
+        description: Fetch a Single Image Package
+        inputParameters:
+        - name: identifier
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: suggested-searches
+      path: /suggested_searches
+      operations:
+      - name: listsuggestedsearches
+        method: GET
+        description: List Suggested Searches
+        inputParameters:
+        - name: conditions[sections]
+          in: query
+          type: string
+          description: Filter to a specific section.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: suggested-searches-slug
+      path: /suggested_searches/{slug}
+      operations:
+      - name: getsuggestedsearch
+        method: GET
+        description: Fetch a Single Suggested Search
+        inputParameters:
+        - name: slug
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: office-of-the-federal-register-rest
+    description: REST adapter for Office of the Federal Register API.
+    resources:
+    - path: /documents.json
+      name: searchdocuments
+      operations:
+      - method: GET
+        name: searchdocuments
+        description: Search Federal Register Documents
+        call: office-of-the-federal-register.searchdocuments
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /documents/{document_number}.json
+      name: getdocument
+      operations:
+      - method: GET
+        name: getdocument
+        description: Fetch a Single Document
+        call: office-of-the-federal-register.getdocument
+        with:
+          document_number: rest.document_number
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /documents/{document_numbers}.json
+      name: getdocuments
+      operations:
+      - method: GET
+        name: getdocuments
+        description: Fetch Multiple Documents
+        call: office-of-the-federal-register.getdocuments
+        with:
+          document_numbers: rest.document_numbers
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /documents/facets/{facet}
+      name: getdocumentfacets
+      operations:
+      - method: GET
+        name: getdocumentfacets
+        description: Document Counts By Facet
+        call: office-of-the-federal-register.getdocumentfacets
+        with:
+          facet: rest.facet
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /issues/{publication_date}.json
+      name: getissue
+      operations:
+      - method: GET
+        name: getissue
+        description: Fetch a Federal Register Issue Table of Contents
+        call: office-of-the-federal-register.getissue
+        with:
+          publication_date: rest.publication_date
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /public-inspection-documents.json
+      name: searchpublicinspectiondocuments
+      operations:
+      - method: GET
+        name: searchpublicinspectiondocuments
+        description: Search Public Inspection Documents
+        call: office-of-the-federal-register.searchpublicinspectiondocuments
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /public-inspection-documents/{document_number}.json
+      name: getpublicinspectiondocument
+      operations:
+      - method: GET
+        name: getpublicinspectiondocument
+        description: Fetch a Single Public Inspection Document
+        call: office-of-the-federal-register.getpublicinspectiondocument
+        with:
+          document_number: rest.document_number
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /public-inspection-documents/current.json
+      name: getcurrentpublicinspectiondocuments
+      operations:
+      - method: GET
+        name: getcurrentpublicinspectiondocuments
+        description: Fetch Current Public Inspection Documents
+        call: office-of-the-federal-register.getcurrentpublicinspectiondocuments
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /agencies
+      name: listagencies
+      operations:
+      - method: GET
+        name: listagencies
+        description: List Agencies
+        call: office-of-the-federal-register.listagencies
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /agencies/{slug}
+      name: getagency
+      operations:
+      - method: GET
+        name: getagency
+        description: Fetch a Single Agency
+        call: office-of-the-federal-register.getagency
+        with:
+          slug: rest.slug
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /images/{identifier}
+      name: getimage
+      operations:
+      - method: GET
+        name: getimage
+        description: Fetch a Single Image Package
+        call: office-of-the-federal-register.getimage
+        with:
+          identifier: rest.identifier
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /suggested_searches
+      name: listsuggestedsearches
+      operations:
+      - method: GET
+        name: listsuggestedsearches
+        description: List Suggested Searches
+        call: office-of-the-federal-register.listsuggestedsearches
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /suggested_searches/{slug}
+      name: getsuggestedsearch
+      operations:
+      - method: GET
+        name: getsuggestedsearch
+        description: Fetch a Single Suggested Search
+        call: office-of-the-federal-register.getsuggestedsearch
+        with:
+          slug: rest.slug
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: office-of-the-federal-register-mcp
+    transport: http
+    description: MCP adapter for Office of the Federal Register API for AI agent use.
+    tools:
+    - name: searchdocuments
+      description: Search Federal Register Documents
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: office-of-the-federal-register.searchdocuments
+      with:
+        per_page: tools.per_page
+        page: tools.page
+        order: tools.order
+        conditions[term]: tools.conditions[term]
+        conditions[publication_date][gte]: tools.conditions[publication_date][gte]
+        conditions[publication_date][lte]: tools.conditions[publication_date][lte]
+        conditions[type][]: tools.conditions[type][]
+        conditions[agencies][]: tools.conditions[agencies][]
+      inputParameters:
+      - name: per_page
+        type: integer
+        description: Number of results per page (max 1000).
+      - name: page
+        type: integer
+        description: Page number of results.
+      - name: order
+        type: string
+        description: Order of results (relevance, newest, oldest, executive_order_number).
+      - name: conditions[term]
+        type: string
+        description: Full text search term.
+      - name: conditions[publication_date][gte]
+        type: string
+        description: Publication date greater than or equal to (YYYY-MM-DD).
+      - name: conditions[publication_date][lte]
+        type: string
+        description: Publication date less than or equal to (YYYY-MM-DD).
+      - name: conditions[type][]
+        type: string
+        description: Document type (RULE, PRORULE, NOTICE, PRESDOCU).
+      - name: conditions[agencies][]
+        type: string
+        description: Agency slug filter.
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getdocument
+      description: Fetch a Single Document
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: office-of-the-federal-register.getdocument
+      with:
+        document_number: tools.document_number
+      inputParameters:
+      - name: document_number
+        type: string
+        description: The document number.
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getdocuments
+      description: Fetch Multiple Documents
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: office-of-the-federal-register.getdocuments
+      with:
+        document_numbers: tools.document_numbers
+      inputParameters:
+      - name: document_numbers
+        type: string
+        description: Comma-separated document numbers.
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getdocumentfacets
+      description: Document Counts By Facet
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: office-of-the-federal-register.getdocumentfacets
+      with:
+        facet: tools.facet
+      inputParameters:
+      - name: facet
+        type: string
+        description: Facet to aggregate by.
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getissue
+      description: Fetch a Federal Register Issue Table of Contents
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: office-of-the-federal-register.getissue
+      with:
+        publication_date: tools.publication_date
+      inputParameters:
+      - name: publication_date
+        type: string
+        description: Publication date (YYYY-MM-DD).
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: searchpublicinspectiondocuments
+      description: Search Public Inspection Documents
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: office-of-the-federal-register.searchpublicinspectiondocuments
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getpublicinspectiondocument
+      description: Fetch a Single Public Inspection Document
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: office-of-the-federal-register.getpublicinspectiondocument
+      with:
+        document_number: tools.document_number
+      inputParameters:
+      - name: document_number
+        type: string
+        description: document_number
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getcurrentpublicinspectiondocuments
+      description: Fetch Current Public Inspection Documents
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: office-of-the-federal-register.getcurrentpublicinspectiondocuments
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listagencies
+      description: List Agencies
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: office-of-the-federal-register.listagencies
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getagency
+      description: Fetch a Single Agency
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: office-of-the-federal-register.getagency
+      with:
+        slug: tools.slug
+      inputParameters:
+      - name: slug
+        type: string
+        description: The agency slug.
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getimage
+      description: Fetch a Single Image Package
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: office-of-the-federal-register.getimage
+      with:
+        identifier: tools.identifier
+      inputParameters:
+      - name: identifier
+        type: string
+        description: identifier
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listsuggestedsearches
+      description: List Suggested Searches
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: office-of-the-federal-register.listsuggestedsearches
+      with:
+        conditions[sections]: tools.conditions[sections]
+      inputParameters:
+      - name: conditions[sections]
+        type: string
+        description: Filter to a specific section.
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getsuggestedsearch
+      description: Fetch a Single Suggested Search
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: office-of-the-federal-register.getsuggestedsearch
+      with:
+        slug: tools.slug
+      inputParameters:
+      - name: slug
+        type: string
+        description: slug
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
