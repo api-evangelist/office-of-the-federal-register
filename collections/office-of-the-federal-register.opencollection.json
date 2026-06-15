@@ -1,0 +1,272 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Office of the Federal Register API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Search Federal Register Documents",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://www.federalregister.gov/api/v1/documents.json",
+        "params": [
+          {
+            "name": "per_page",
+            "value": "",
+            "type": "query",
+            "description": "Number of results per page (max 1000)."
+          },
+          {
+            "name": "page",
+            "value": "",
+            "type": "query",
+            "description": "Page number of results."
+          },
+          {
+            "name": "order",
+            "value": "",
+            "type": "query",
+            "description": "Order of results (relevance, newest, oldest, executive_order_number)."
+          },
+          {
+            "name": "conditions[term]",
+            "value": "",
+            "type": "query",
+            "description": "Full text search term."
+          },
+          {
+            "name": "conditions[publication_date][gte]",
+            "value": "",
+            "type": "query",
+            "description": "Publication date greater than or equal to (YYYY-MM-DD)."
+          },
+          {
+            "name": "conditions[publication_date][lte]",
+            "value": "",
+            "type": "query",
+            "description": "Publication date less than or equal to (YYYY-MM-DD)."
+          },
+          {
+            "name": "conditions[type][]",
+            "value": "",
+            "type": "query",
+            "description": "Document type (RULE, PRORULE, NOTICE, PRESDOCU)."
+          },
+          {
+            "name": "conditions[agencies][]",
+            "value": "",
+            "type": "query",
+            "description": "Agency slug filter."
+          }
+        ]
+      },
+      "docs": "Search and filter Federal Register documents (rules, proposed rules, notices, presidential documents)."
+    },
+    {
+      "info": {
+        "name": "Fetch a Single Document",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://www.federalregister.gov/api/v1/documents/:document_number.json",
+        "params": [
+          {
+            "name": "document_number",
+            "value": "",
+            "type": "path",
+            "description": "The document number."
+          }
+        ]
+      },
+      "docs": "Retrieve a single Federal Register document by its document number."
+    },
+    {
+      "info": {
+        "name": "Fetch Multiple Documents",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://www.federalregister.gov/api/v1/documents/:document_numbers.json",
+        "params": [
+          {
+            "name": "document_numbers",
+            "value": "",
+            "type": "path",
+            "description": "Comma-separated document numbers."
+          }
+        ]
+      },
+      "docs": "Retrieve multiple Federal Register documents by comma-separated document numbers."
+    },
+    {
+      "info": {
+        "name": "Document Counts By Facet",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://www.federalregister.gov/api/v1/documents/facets/:facet",
+        "params": [
+          {
+            "name": "facet",
+            "value": "",
+            "type": "path",
+            "description": "Facet to aggregate by."
+          }
+        ]
+      },
+      "docs": "Aggregate document counts grouped by a facet (daily, weekly, monthly, yearly, agency, topic, section, type, subtype)."
+    },
+    {
+      "info": {
+        "name": "Fetch a Federal Register Issue Table of Contents",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://www.federalregister.gov/api/v1/issues/:publication_date.json",
+        "params": [
+          {
+            "name": "publication_date",
+            "value": "",
+            "type": "path",
+            "description": "Publication date (YYYY-MM-DD)."
+          }
+        ]
+      },
+      "docs": "Retrieve the table of contents for a Federal Register issue by date."
+    },
+    {
+      "info": {
+        "name": "Search Public Inspection Documents",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://www.federalregister.gov/api/v1/public-inspection-documents.json"
+      },
+      "docs": "Search documents currently on public inspection."
+    },
+    {
+      "info": {
+        "name": "Fetch a Single Public Inspection Document",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://www.federalregister.gov/api/v1/public-inspection-documents/:document_number.json",
+        "params": [
+          {
+            "name": "document_number",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Fetch a Single Public Inspection Document"
+    },
+    {
+      "info": {
+        "name": "Fetch Current Public Inspection Documents",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://www.federalregister.gov/api/v1/public-inspection-documents/current.json"
+      },
+      "docs": "Documents currently on public inspection."
+    },
+    {
+      "info": {
+        "name": "List Agencies",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://www.federalregister.gov/api/v1/agencies"
+      },
+      "docs": "List all federal agencies represented in the Federal Register."
+    },
+    {
+      "info": {
+        "name": "Fetch a Single Agency",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://www.federalregister.gov/api/v1/agencies/:slug",
+        "params": [
+          {
+            "name": "slug",
+            "value": "",
+            "type": "path",
+            "description": "The agency slug."
+          }
+        ]
+      },
+      "docs": "Fetch a Single Agency"
+    },
+    {
+      "info": {
+        "name": "Fetch a Single Image Package",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://www.federalregister.gov/api/v1/images/:identifier",
+        "params": [
+          {
+            "name": "identifier",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Fetch a Single Image Package"
+    },
+    {
+      "info": {
+        "name": "List Suggested Searches",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://www.federalregister.gov/api/v1/suggested_searches",
+        "params": [
+          {
+            "name": "conditions[sections]",
+            "value": "",
+            "type": "query",
+            "description": "Filter to a specific section."
+          }
+        ]
+      },
+      "docs": "List the available suggested searches by topic section."
+    },
+    {
+      "info": {
+        "name": "Fetch a Single Suggested Search",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://www.federalregister.gov/api/v1/suggested_searches/:slug",
+        "params": [
+          {
+            "name": "slug",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Fetch a Single Suggested Search"
+    }
+  ],
+  "bundled": true
+}

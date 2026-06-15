@@ -1,0 +1,971 @@
+{
+  "item": [
+    {
+      "id": "a2cad06d-f1aa-4e72-ac8f-df064020b989",
+      "name": "Search Federal Register Documents",
+      "request": {
+        "name": "Search Federal Register Documents",
+        "description": {
+          "content": "Search and filter Federal Register documents (rules, proposed rules, notices, presidential documents).",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "documents.json"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "per_page",
+              "value": "<integer>",
+              "description": "Number of results per page (max 1000)."
+            },
+            {
+              "disabled": false,
+              "key": "page",
+              "value": "<integer>",
+              "description": "Page number of results."
+            },
+            {
+              "disabled": false,
+              "key": "order",
+              "value": "<string>",
+              "description": "Order of results (relevance, newest, oldest, executive_order_number)."
+            },
+            {
+              "disabled": false,
+              "key": "conditions[term]",
+              "value": "<string>",
+              "description": "Full text search term."
+            },
+            {
+              "disabled": false,
+              "key": "conditions[publication_date][gte]",
+              "value": "<date>",
+              "description": "Publication date greater than or equal to (YYYY-MM-DD)."
+            },
+            {
+              "disabled": false,
+              "key": "conditions[publication_date][lte]",
+              "value": "<date>",
+              "description": "Publication date less than or equal to (YYYY-MM-DD)."
+            },
+            {
+              "disabled": false,
+              "key": "conditions[type][]",
+              "value": "<string>",
+              "description": "Document type (RULE, PRORULE, NOTICE, PRESDOCU)."
+            },
+            {
+              "disabled": false,
+              "key": "conditions[agencies][]",
+              "value": "<string>",
+              "description": "Agency slug filter."
+            }
+          ],
+          "variable": []
+        },
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "2bb52ee3-0968-4dc5-8d50-36d18ac83315",
+          "name": "A paginated list of Federal Register documents.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "documents.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "per_page",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "page",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "order",
+                  "value": "<string>"
+                },
+                {
+                  "key": "conditions[term]",
+                  "value": "<string>"
+                },
+                {
+                  "key": "conditions[publication_date][gte]",
+                  "value": "<date>"
+                },
+                {
+                  "key": "conditions[publication_date][lte]",
+                  "value": "<date>"
+                },
+                {
+                  "key": "conditions[type][]",
+                  "value": "<string>"
+                },
+                {
+                  "key": "conditions[agencies][]",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "3b149784-7b85-424c-8323-2e686ea8ec00",
+      "name": "Fetch a Single Document",
+      "request": {
+        "name": "Fetch a Single Document",
+        "description": {
+          "content": "Retrieve a single Federal Register document by its document number.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "documents",
+            "{{document_number}}.json"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "74266ebc-2868-4584-89ae-28011d5baac7",
+          "name": "A single Federal Register document.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "documents",
+                "{{document_number}}.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "da73b570-567f-4a6b-8b35-5361664508ec",
+      "name": "Fetch Multiple Documents",
+      "request": {
+        "name": "Fetch Multiple Documents",
+        "description": {
+          "content": "Retrieve multiple Federal Register documents by comma-separated document numbers.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "documents",
+            "{{document_numbers}}.json"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "8c0014ad-caa5-4cc6-93bf-052b3eff03e4",
+          "name": "Federal Register documents.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "documents",
+                "{{document_numbers}}.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "277a3ec6-bee3-48a3-bb9f-b31dad179b76",
+      "name": "Document Counts By Facet",
+      "request": {
+        "name": "Document Counts By Facet",
+        "description": {
+          "content": "Aggregate document counts grouped by a facet (daily, weekly, monthly, yearly, agency, topic, section, type, subtype).",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "documents",
+            "facets",
+            ":facet"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "facet",
+              "description": "(Required) Facet to aggregate by."
+            }
+          ]
+        },
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "559bdfde-e7d7-4cef-961c-726fff5b38c6",
+          "name": "Facet counts.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "documents",
+                "facets",
+                ":facet"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "facet",
+                  "description": "(Required) Facet to aggregate by."
+                }
+              ]
+            },
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "0b7b2d07-571a-4770-92a0-2965443c67b7",
+      "name": "Fetch a Federal Register Issue Table of Contents",
+      "request": {
+        "name": "Fetch a Federal Register Issue Table of Contents",
+        "description": {
+          "content": "Retrieve the table of contents for a Federal Register issue by date.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "issues",
+            "{{publication_date}}.json"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "27ec4a2a-482a-4b5c-b74a-321e9423a4e1",
+          "name": "Issue table of contents.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "issues",
+                "{{publication_date}}.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "e11226fe-4e4f-489a-a05e-5c3d0de3631b",
+      "name": "Search Public Inspection Documents",
+      "request": {
+        "name": "Search Public Inspection Documents",
+        "description": {
+          "content": "Search documents currently on public inspection.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "public-inspection-documents.json"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "19c2b550-2b83-4291-8c38-fc8392c837f6",
+          "name": "Public inspection documents.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "public-inspection-documents.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "b86c87fc-f771-4a80-b30c-a471d98599e1",
+      "name": "Fetch a Single Public Inspection Document",
+      "request": {
+        "name": "Fetch a Single Public Inspection Document",
+        "description": {},
+        "url": {
+          "path": [
+            "public-inspection-documents",
+            "{{document_number}}.json"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "1cb21fae-e9e9-4a38-a874-22e790b6a2f2",
+          "name": "A single public inspection document.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "public-inspection-documents",
+                "{{document_number}}.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "2d3e3564-7d53-47bb-9519-3243e17b8066",
+      "name": "Fetch Current Public Inspection Documents",
+      "request": {
+        "name": "Fetch Current Public Inspection Documents",
+        "description": {
+          "content": "Documents currently on public inspection.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "public-inspection-documents",
+            "current.json"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "db85375a-4b72-4f57-b71a-222a517dc26b",
+          "name": "Current public inspection documents.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "public-inspection-documents",
+                "current.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "cfe5ba40-e42f-4cc9-939e-4dee0dca5ae8",
+      "name": "List Agencies",
+      "request": {
+        "name": "List Agencies",
+        "description": {
+          "content": "List all federal agencies represented in the Federal Register.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "agencies"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "3108edbb-2b15-4c4a-b2b2-685dfd01c41d",
+          "name": "List of agencies.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "agencies"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "cc59d1e6-0c31-4afa-af89-51b2d92edbbe",
+      "name": "Fetch a Single Agency",
+      "request": {
+        "name": "Fetch a Single Agency",
+        "description": {},
+        "url": {
+          "path": [
+            "agencies",
+            ":slug"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "slug",
+              "description": "(Required) The agency slug."
+            }
+          ]
+        },
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "13d5d8b9-ed21-4759-b72b-7e981859ff04",
+          "name": "A single agency.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "agencies",
+                ":slug"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "slug",
+                  "description": "(Required) The agency slug."
+                }
+              ]
+            },
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "d8711413-24c5-4777-b226-abe9927cbc29",
+      "name": "Fetch a Single Image Package",
+      "request": {
+        "name": "Fetch a Single Image Package",
+        "description": {},
+        "url": {
+          "path": [
+            "images",
+            ":identifier"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "identifier",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "0357e4ab-0354-4bf0-ad83-b716f411f7e1",
+          "name": "Image package.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "images",
+                ":identifier"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "identifier",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "9463fdbb-cfa5-439f-8e80-600fe3a5ae00",
+      "name": "List Suggested Searches",
+      "request": {
+        "name": "List Suggested Searches",
+        "description": {
+          "content": "List the available suggested searches by topic section.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "suggested_searches"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "conditions[sections]",
+              "value": "<string>",
+              "description": "Filter to a specific section."
+            }
+          ],
+          "variable": []
+        },
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "a7105647-1af9-4874-a321-aa45d9527d97",
+          "name": "Suggested searches.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "suggested_searches"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "conditions[sections]",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "af2202cf-7102-42b4-9fc5-68c500d8f35b",
+      "name": "Fetch a Single Suggested Search",
+      "request": {
+        "name": "Fetch a Single Suggested Search",
+        "description": {},
+        "url": {
+          "path": [
+            "suggested_searches",
+            ":slug"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "slug",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "8692cb21-b5f5-4fa8-91dd-f9f0fe8c295d",
+          "name": "A single suggested search.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "suggested_searches",
+                ":slug"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "slug",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.federalregister.gov/api/v1",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) The document number.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "document_number"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) Comma-separated document numbers.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "document_numbers"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) Publication date (YYYY-MM-DD).",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<date>",
+      "key": "publication_date"
+    }
+  ],
+  "info": {
+    "_postman_id": "a74ee0de-cd36-4b47-bcbe-ddab9b49647e",
+    "name": "Office of the Federal Register API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Search, browse and learn about the Federal Register. Federal Register 2.0 is the unofficial daily publication for rules, proposed rules, and notices of Federal agencies and organizations, as well as executive orders and other presidential documents.\n\nContact Support:\n Name: Office of the Federal Register",
+      "type": "text/plain"
+    }
+  }
+}
