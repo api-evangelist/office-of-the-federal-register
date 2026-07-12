@@ -39,6 +39,10 @@ apis:
       - FN: Office of the Federal Register
         url: https://www.federalregister.gov/developers/documentation/api/v1
 common:
+  - type: VulnerabilityDisclosure
+    url: security/office-of-the-federal-register-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/office-of-the-federal-register-domain-security.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/office-of-the-federal-register
   - type: Website
