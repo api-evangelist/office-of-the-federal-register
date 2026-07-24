@@ -1,0 +1,67 @@
+openapi: 3.0.3
+info:
+  title: Office of the Federal Register Agencies Documents.json API
+  description: Search, browse and learn about the Federal Register. Federal Register 2.0 is the unofficial daily publication for rules, proposed rules, and notices of Federal agencies and organizations, as well as executive orders and other presidential documents.
+  version: v1
+  contact:
+    name: Office of the Federal Register
+    url: https://www.federalregister.gov/developers/documentation/api/v1
+servers:
+- url: https://www.federalregister.gov/api/v1
+  description: Federal Register API
+tags:
+- name: Documents.json
+paths:
+  /documents.json:
+    get:
+      summary: Search Federal Register Documents
+      description: Search and filter Federal Register documents (rules, proposed rules, notices, presidential documents).
+      operationId: searchDocuments
+      parameters:
+      - name: per_page
+        in: query
+        description: Number of results per page (max 1000).
+        schema:
+          type: integer
+      - name: page
+        in: query
+        description: Page number of results.
+        schema:
+          type: integer
+      - name: order
+        in: query
+        description: Order of results (relevance, newest, oldest, executive_order_number).
+        schema:
+          type: string
+      - name: conditions[term]
+        in: query
+        description: Full text search term.
+        schema:
+          type: string
+      - name: conditions[publication_date][gte]
+        in: query
+        description: Publication date greater than or equal to (YYYY-MM-DD).
+        schema:
+          type: string
+          format: date
+      - name: conditions[publication_date][lte]
+        in: query
+        description: Publication date less than or equal to (YYYY-MM-DD).
+        schema:
+          type: string
+          format: date
+      - name: conditions[type][]
+        in: query
+        description: Document type (RULE, PRORULE, NOTICE, PRESDOCU).
+        schema:
+          type: string
+      - name: conditions[agencies][]
+        in: query
+        description: Agency slug filter.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: A paginated list of Federal Register documents.
+      tags:
+      - Documents.json

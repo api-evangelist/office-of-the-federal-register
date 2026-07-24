@@ -1,0 +1,45 @@
+openapi: 3.0.3
+info:
+  title: Office of the Federal Register Agencies Suggested Searches API
+  description: Search, browse and learn about the Federal Register. Federal Register 2.0 is the unofficial daily publication for rules, proposed rules, and notices of Federal agencies and organizations, as well as executive orders and other presidential documents.
+  version: v1
+  contact:
+    name: Office of the Federal Register
+    url: https://www.federalregister.gov/developers/documentation/api/v1
+servers:
+- url: https://www.federalregister.gov/api/v1
+  description: Federal Register API
+tags:
+- name: Suggested Searches
+paths:
+  /suggested_searches:
+    get:
+      summary: List Suggested Searches
+      description: List the available suggested searches by topic section.
+      operationId: listSuggestedSearches
+      parameters:
+      - name: conditions[sections]
+        in: query
+        description: Filter to a specific section.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Suggested searches.
+      tags:
+      - Suggested Searches
+  /suggested_searches/{slug}:
+    get:
+      summary: Fetch a Single Suggested Search
+      operationId: getSuggestedSearch
+      parameters:
+      - name: slug
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: A single suggested search.
+      tags:
+      - Suggested Searches

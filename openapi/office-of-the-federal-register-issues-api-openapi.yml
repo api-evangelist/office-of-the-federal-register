@@ -1,0 +1,32 @@
+openapi: 3.0.3
+info:
+  title: Office of the Federal Register Agencies Issues API
+  description: Search, browse and learn about the Federal Register. Federal Register 2.0 is the unofficial daily publication for rules, proposed rules, and notices of Federal agencies and organizations, as well as executive orders and other presidential documents.
+  version: v1
+  contact:
+    name: Office of the Federal Register
+    url: https://www.federalregister.gov/developers/documentation/api/v1
+servers:
+- url: https://www.federalregister.gov/api/v1
+  description: Federal Register API
+tags:
+- name: Issues
+paths:
+  /issues/{publication_date}.json:
+    get:
+      summary: Fetch a Federal Register Issue Table of Contents
+      description: Retrieve the table of contents for a Federal Register issue by date.
+      operationId: getIssue
+      parameters:
+      - name: publication_date
+        in: path
+        required: true
+        description: Publication date (YYYY-MM-DD).
+        schema:
+          type: string
+          format: date
+      responses:
+        '200':
+          description: Issue table of contents.
+      tags:
+      - Issues

@@ -1,0 +1,65 @@
+openapi: 3.0.3
+info:
+  title: Office of the Federal Register Agencies Documents API
+  description: Search, browse and learn about the Federal Register. Federal Register 2.0 is the unofficial daily publication for rules, proposed rules, and notices of Federal agencies and organizations, as well as executive orders and other presidential documents.
+  version: v1
+  contact:
+    name: Office of the Federal Register
+    url: https://www.federalregister.gov/developers/documentation/api/v1
+servers:
+- url: https://www.federalregister.gov/api/v1
+  description: Federal Register API
+tags:
+- name: Documents
+paths:
+  /documents/{document_number}.json:
+    get:
+      summary: Fetch a Single Document
+      description: Retrieve a single Federal Register document by its document number.
+      operationId: getDocument
+      parameters:
+      - name: document_number
+        in: path
+        required: true
+        description: The document number.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: A single Federal Register document.
+      tags:
+      - Documents
+  /documents/{document_numbers}.json:
+    get:
+      summary: Fetch Multiple Documents
+      description: Retrieve multiple Federal Register documents by comma-separated document numbers.
+      operationId: getDocuments
+      parameters:
+      - name: document_numbers
+        in: path
+        required: true
+        description: Comma-separated document numbers.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Federal Register documents.
+      tags:
+      - Documents
+  /documents/facets/{facet}:
+    get:
+      summary: Document Counts By Facet
+      description: Aggregate document counts grouped by a facet (daily, weekly, monthly, yearly, agency, topic, section, type, subtype).
+      operationId: getDocumentFacets
+      parameters:
+      - name: facet
+        in: path
+        required: true
+        description: Facet to aggregate by.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Facet counts.
+      tags:
+      - Documents
