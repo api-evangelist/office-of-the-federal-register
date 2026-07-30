@@ -7,7 +7,19 @@ tags:
   - Federal Register
   - Executive Orders
 kind: contract
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Freemium
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/office-of-the-federal-register.png
 access: 3rd-Party
 created: '2024-12-03'
 modified: '2026-05-19'
@@ -17,27 +29,110 @@ description: >-
   publication of presidential proclamations, executive orders, and regulations from federal agencies. The office also
   compiles and publishes the Code of Federal Regulations, which contains all federal regulations currently in effect.
 apis:
-  - aid: office-of-the-federal-register:office-of-the-federal-register
-    name: Office of the Federal Register
-    description: >-
-      Search, browse and learn about the Federal Register. Federal Register 2.0 is the unofficial daily publication for
-      rules, proposed rules, and notices of Federal agencies and organizations, as well as executive orders and other
-      presidential documents.
-    tags:
-      - Federal Register
-      - Regulations
-      - Documents
-    humanURL: https://www.federalregister.gov/developers/documentation/api/v1
-    baseURL: https://www.federalregister.gov/api/v1
-    properties:
-      - type: Documentation
-        url: https://www.federalregister.gov/developers/documentation/api/v1
-      - type: OpenAPI
-        url: >-
-          https://raw.githubusercontent.com/api-evangelist/office-of-the-federal-register/refs/heads/main/openapi/office-of-the-federal-register-openapi.yml
-    contact:
-      - FN: Office of the Federal Register
-        url: https://www.federalregister.gov/developers/documentation/api/v1
+- aid: office-of-the-federal-register:office-of-the-federal-register-agencies-api
+  name: Office of the Federal Register Agencies API
+  description: The Agencies API from Office of the Federal Register — 2 operation(s) for agencies.
+  humanURL: https://www.federalregister.gov/developers/documentation/api/v1
+  baseURL: https://www.federalregister.gov/api/v1
+  tags:
+  - Agencies
+  properties:
+  - type: OpenAPI
+    url: openapi/office-of-the-federal-register-agencies-api-openapi.yml
+  - type: Documentation
+    url: https://www.federalregister.gov/developers/documentation/api/v1
+- aid: office-of-the-federal-register:office-of-the-federal-register-documents-api
+  name: Office of the Federal Register Documents API
+  description: The Documents API from Office of the Federal Register — 3 operation(s) for documents.
+  humanURL: https://www.federalregister.gov/developers/documentation/api/v1
+  baseURL: https://www.federalregister.gov/api/v1
+  tags:
+  - Documents
+  properties:
+  - type: OpenAPI
+    url: openapi/office-of-the-federal-register-documents-api-openapi.yml
+  - type: Documentation
+    url: https://www.federalregister.gov/developers/documentation/api/v1
+- aid: office-of-the-federal-register:office-of-the-federal-register-documents-json-api
+  name: Office of the Federal Register Documents.json API
+  description: >-
+    The Documents.json API from Office of the Federal Register — 1 operation(s) for documents.json.
+  humanURL: https://www.federalregister.gov/developers/documentation/api/v1
+  baseURL: https://www.federalregister.gov/api/v1
+  tags:
+  - Documents.json
+  properties:
+  - type: OpenAPI
+    url: openapi/office-of-the-federal-register-documents-json-api-openapi.yml
+  - type: Documentation
+    url: https://www.federalregister.gov/developers/documentation/api/v1
+- aid: office-of-the-federal-register:office-of-the-federal-register-images-api
+  name: Office of the Federal Register Images API
+  description: The Images API from Office of the Federal Register — 1 operation(s) for images.
+  humanURL: https://www.federalregister.gov/developers/documentation/api/v1
+  baseURL: https://www.federalregister.gov/api/v1
+  tags:
+  - Images
+  properties:
+  - type: OpenAPI
+    url: openapi/office-of-the-federal-register-images-api-openapi.yml
+  - type: Documentation
+    url: https://www.federalregister.gov/developers/documentation/api/v1
+- aid: office-of-the-federal-register:office-of-the-federal-register-issues-api
+  name: Office of the Federal Register Issues API
+  description: The Issues API from Office of the Federal Register — 1 operation(s) for issues.
+  humanURL: https://www.federalregister.gov/developers/documentation/api/v1
+  baseURL: https://www.federalregister.gov/api/v1
+  tags:
+  - Issues
+  properties:
+  - type: OpenAPI
+    url: openapi/office-of-the-federal-register-issues-api-openapi.yml
+  - type: Documentation
+    url: https://www.federalregister.gov/developers/documentation/api/v1
+- aid: >-
+    office-of-the-federal-register:office-of-the-federal-register-public-inspection-documents-api
+  name: Office of the Federal Register Public Inspection Documents API
+  description: >-
+    The Public Inspection Documents API from Office of the Federal Register — 2 operation(s) for public
+    inspection documents.
+  humanURL: https://www.federalregister.gov/developers/documentation/api/v1
+  baseURL: https://www.federalregister.gov/api/v1
+  tags:
+  - Public Inspection Documents
+  properties:
+  - type: OpenAPI
+    url: openapi/office-of-the-federal-register-public-inspection-documents-api-openapi.yml
+  - type: Documentation
+    url: https://www.federalregister.gov/developers/documentation/api/v1
+- aid: >-
+    office-of-the-federal-register:office-of-the-federal-register-public-inspection-documents-json-api
+  name: Office of the Federal Register Public Inspection Documents.json API
+  description: >-
+    The Public Inspection Documents.json API from Office of the Federal Register — 1 operation(s) for
+    public inspection documents.json.
+  humanURL: https://www.federalregister.gov/developers/documentation/api/v1
+  baseURL: https://www.federalregister.gov/api/v1
+  tags:
+  - Public Inspection Documents.json
+  properties:
+  - type: OpenAPI
+    url: openapi/office-of-the-federal-register-public-inspection-documents-json-api-openapi.yml
+  - type: Documentation
+    url: https://www.federalregister.gov/developers/documentation/api/v1
+- aid: office-of-the-federal-register:office-of-the-federal-register-suggested-searches-api
+  name: Office of the Federal Register Suggested Searches API
+  description: >-
+    The Suggested Searches API from Office of the Federal Register — 2 operation(s) for suggested searches.
+  humanURL: https://www.federalregister.gov/developers/documentation/api/v1
+  baseURL: https://www.federalregister.gov/api/v1
+  tags:
+  - Suggested Searches
+  properties:
+  - type: OpenAPI
+    url: openapi/office-of-the-federal-register-suggested-searches-api-openapi.yml
+  - type: Documentation
+    url: https://www.federalregister.gov/developers/documentation/api/v1
 common:
   - type: AgenticAccess
     url: agentic-access/office-of-the-federal-register-agentic-access.yml
