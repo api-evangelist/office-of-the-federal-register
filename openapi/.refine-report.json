@@ -1,0 +1,28 @@
+{
+  "provider": "office-of-the-federal-register",
+  "sources": [
+    "office-of-the-federal-register-agencies-api-openapi.yml",
+    "office-of-the-federal-register-documents-api-openapi.yml",
+    "office-of-the-federal-register-documents-json-api-openapi.yml",
+    "office-of-the-federal-register-images-api-openapi.yml",
+    "office-of-the-federal-register-issues-api-openapi.yml",
+    "office-of-the-federal-register-public-inspection-documents-api-openapi.yml",
+    "office-of-the-federal-register-public-inspection-documents-json-api-openapi.yml",
+    "office-of-the-federal-register-suggested-searches-api-openapi.yml"
+  ],
+  "outputs": [
+    "office-of-the-federal-register-agencies-api-openapi.yml",
+    "office-of-the-federal-register-documents-api-openapi.yml",
+    "office-of-the-federal-register-documents-json-api-openapi.yml",
+    "office-of-the-federal-register-images-api-openapi.yml",
+    "office-of-the-federal-register-issues-api-openapi.yml",
+    "office-of-the-federal-register-public-inspection-documents-api-openapi.yml",
+    "office-of-the-federal-register-public-inspection-documents-json-api-openapi.yml",
+    "office-of-the-federal-register-suggested-searches-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
