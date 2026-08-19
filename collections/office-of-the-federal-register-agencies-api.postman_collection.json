@@ -1,0 +1,163 @@
+{
+  "item": [
+    {
+      "id": "faaae565-ef84-43b8-85b1-0608b6a866d0",
+      "name": "Agencies",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2c9d54a8-bd6a-4889-96e7-9d4da67f3f4c",
+          "name": "List Agencies",
+          "request": {
+            "name": "List Agencies",
+            "description": {
+              "content": "List all federal agencies represented in the Federal Register.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "agencies"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "285383fd-d361-4566-afa2-2f5ed9e7bf60",
+              "name": "List of agencies.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "agencies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6311b6bf-7a4b-4369-86a9-67e34124f3e9",
+          "name": "Fetch a Single Agency",
+          "request": {
+            "name": "Fetch a Single Agency",
+            "description": {},
+            "url": {
+              "path": [
+                "agencies",
+                ":slug"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "slug",
+                  "description": "(Required) The agency slug."
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d2c02f07-608f-416d-9591-8687529fd696",
+              "name": "A single agency.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "agencies",
+                    ":slug"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "slug",
+                      "description": "(Required) The agency slug."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.federalregister.gov/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "fc91b04d-f903-475b-aecc-11d25206e06d",
+    "name": "Office of the Federal Register Agencies API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Search, browse and learn about the Federal Register. Federal Register 2.0 is the unofficial daily publication for rules, proposed rules, and notices of Federal agencies and organizations, as well as executive orders and other presidential documents.\n\nContact Support:\n Name: Office of the Federal Register",
+      "type": "text/plain"
+    }
+  }
+}

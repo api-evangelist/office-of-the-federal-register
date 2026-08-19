@@ -1,0 +1,36 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Office of the Federal Register Agencies Images API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Images",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fetch a Single Image Package",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.federalregister.gov/api/v1/images/:identifier",
+            "params": [
+              {
+                "name": "identifier",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Fetch a Single Image Package"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

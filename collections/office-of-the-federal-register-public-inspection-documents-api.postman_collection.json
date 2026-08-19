@@ -1,0 +1,159 @@
+{
+  "item": [
+    {
+      "id": "954dd5e0-6e4a-4e30-be3d-88bbb2e84423",
+      "name": "Public Inspection Documents",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "cc7763fa-22fe-45bb-b595-9dfe765ddba7",
+          "name": "Fetch a Single Public Inspection Document",
+          "request": {
+            "name": "Fetch a Single Public Inspection Document",
+            "description": {},
+            "url": {
+              "path": [
+                "public-inspection-documents",
+                "{{document_number}}.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "14b8dbd0-d2c7-4bc7-af18-1ab6b468d540",
+              "name": "A single public inspection document.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public-inspection-documents",
+                    "{{document_number}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e051cb2c-bae0-4730-8e8b-da5c6750af6a",
+          "name": "Fetch Current Public Inspection Documents",
+          "request": {
+            "name": "Fetch Current Public Inspection Documents",
+            "description": {
+              "content": "Documents currently on public inspection.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "public-inspection-documents",
+                "current.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "49dc0a01-c770-4b78-9770-ef84f3309df5",
+              "name": "Current public inspection documents.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public-inspection-documents",
+                    "current.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.federalregister.gov/api/v1",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) ",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "document_number"
+    }
+  ],
+  "info": {
+    "_postman_id": "485be8cc-cd55-480a-825c-e3751d578abc",
+    "name": "Office of the Federal Register Agencies Public Inspection Documents API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Search, browse and learn about the Federal Register. Federal Register 2.0 is the unofficial daily publication for rules, proposed rules, and notices of Federal agencies and organizations, as well as executive orders and other presidential documents.\n\nContact Support:\n Name: Office of the Federal Register",
+      "type": "text/plain"
+    }
+  }
+}

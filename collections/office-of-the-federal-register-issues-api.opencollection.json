@@ -1,0 +1,37 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Office of the Federal Register Agencies Issues API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Issues",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fetch a Federal Register Issue Table of Contents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.federalregister.gov/api/v1/issues/:publication_date.json",
+            "params": [
+              {
+                "name": "publication_date",
+                "value": "",
+                "type": "path",
+                "description": "Publication date (YYYY-MM-DD)."
+              }
+            ]
+          },
+          "docs": "Retrieve the table of contents for a Federal Register issue by date."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,175 @@
+{
+  "item": [
+    {
+      "id": "fe3ed9d8-bf34-4d25-8954-4107d54511a2",
+      "name": "Suggested Searches",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "83b5ee3f-c1cd-4c37-8591-99692fc454de",
+          "name": "List Suggested Searches",
+          "request": {
+            "name": "List Suggested Searches",
+            "description": {
+              "content": "List the available suggested searches by topic section.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "suggested_searches"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "conditions[sections]",
+                  "value": "<string>",
+                  "description": "Filter to a specific section."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "20c10320-b21f-4acb-86dc-9761b1732a16",
+              "name": "Suggested searches.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "suggested_searches"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "conditions[sections]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dc78d781-5243-4cd1-9429-8caa452c2553",
+          "name": "Fetch a Single Suggested Search",
+          "request": {
+            "name": "Fetch a Single Suggested Search",
+            "description": {},
+            "url": {
+              "path": [
+                "suggested_searches",
+                ":slug"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "slug",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e77b30b9-6daa-42c2-954c-e0af22ec3700",
+              "name": "A single suggested search.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "suggested_searches",
+                    ":slug"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "slug",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.federalregister.gov/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "7350f35a-783e-4e97-b0c2-9d309c973991",
+    "name": "Office of the Federal Register Agencies Suggested Searches API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Search, browse and learn about the Federal Register. Federal Register 2.0 is the unofficial daily publication for rules, proposed rules, and notices of Federal agencies and organizations, as well as executive orders and other presidential documents.\n\nContact Support:\n Name: Office of the Federal Register",
+      "type": "text/plain"
+    }
+  }
+}

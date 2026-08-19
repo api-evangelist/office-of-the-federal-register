@@ -1,0 +1,48 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Office of the Federal Register Agencies API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Agencies",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Agencies",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.federalregister.gov/api/v1/agencies"
+          },
+          "docs": "List all federal agencies represented in the Federal Register."
+        },
+        {
+          "info": {
+            "name": "Fetch a Single Agency",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.federalregister.gov/api/v1/agencies/:slug",
+            "params": [
+              {
+                "name": "slug",
+                "value": "",
+                "type": "path",
+                "description": "The agency slug."
+              }
+            ]
+          },
+          "docs": "Fetch a Single Agency"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

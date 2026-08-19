@@ -1,0 +1,55 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Office of the Federal Register Agencies Suggested Searches API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Suggested Searches",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Suggested Searches",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.federalregister.gov/api/v1/suggested_searches",
+            "params": [
+              {
+                "name": "conditions[sections]",
+                "value": "",
+                "type": "query",
+                "description": "Filter to a specific section."
+              }
+            ]
+          },
+          "docs": "List the available suggested searches by topic section."
+        },
+        {
+          "info": {
+            "name": "Fetch a Single Suggested Search",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.federalregister.gov/api/v1/suggested_searches/:slug",
+            "params": [
+              {
+                "name": "slug",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Fetch a Single Suggested Search"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

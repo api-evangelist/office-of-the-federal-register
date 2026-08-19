@@ -1,0 +1,79 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Office of the Federal Register Agencies Documents.json API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Documents.json",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search Federal Register Documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.federalregister.gov/api/v1/documents.json",
+            "params": [
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Number of results per page (max 1000)."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number of results."
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Order of results (relevance, newest, oldest, executive_order_number)."
+              },
+              {
+                "name": "conditions[term]",
+                "value": "",
+                "type": "query",
+                "description": "Full text search term."
+              },
+              {
+                "name": "conditions[publication_date][gte]",
+                "value": "",
+                "type": "query",
+                "description": "Publication date greater than or equal to (YYYY-MM-DD)."
+              },
+              {
+                "name": "conditions[publication_date][lte]",
+                "value": "",
+                "type": "query",
+                "description": "Publication date less than or equal to (YYYY-MM-DD)."
+              },
+              {
+                "name": "conditions[type][]",
+                "value": "",
+                "type": "query",
+                "description": "Document type (RULE, PRORULE, NOTICE, PRESDOCU)."
+              },
+              {
+                "name": "conditions[agencies][]",
+                "value": "",
+                "type": "query",
+                "description": "Agency slug filter."
+              }
+            ]
+          },
+          "docs": "Search and filter Federal Register documents (rules, proposed rules, notices, presidential documents)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

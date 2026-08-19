@@ -1,0 +1,250 @@
+{
+  "item": [
+    {
+      "id": "6aa4b8c4-6d3e-4036-b1be-75bb98745d99",
+      "name": "Documents",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f0c58199-e661-4750-9a9e-0bccd36f17e6",
+          "name": "Fetch a Single Document",
+          "request": {
+            "name": "Fetch a Single Document",
+            "description": {
+              "content": "Retrieve a single Federal Register document by its document number.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "documents",
+                "{{document_number}}.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "93fe75f2-b23c-4184-94ec-1e3ddbf29f53",
+              "name": "A single Federal Register document.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "documents",
+                    "{{document_number}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2d523d14-caed-40c1-9c83-1d4cd1e3712f",
+          "name": "Fetch Multiple Documents",
+          "request": {
+            "name": "Fetch Multiple Documents",
+            "description": {
+              "content": "Retrieve multiple Federal Register documents by comma-separated document numbers.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "documents",
+                "{{document_numbers}}.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "53b1c883-96d3-4c2b-a562-57719a22e0fb",
+              "name": "Federal Register documents.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "documents",
+                    "{{document_numbers}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0d6bb120-332d-469a-9c80-fb2dbd336a8a",
+          "name": "Document Counts By Facet",
+          "request": {
+            "name": "Document Counts By Facet",
+            "description": {
+              "content": "Aggregate document counts grouped by a facet (daily, weekly, monthly, yearly, agency, topic, section, type, subtype).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "documents",
+                "facets",
+                ":facet"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "facet",
+                  "description": "(Required) Facet to aggregate by."
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "72577745-f5f7-4d5d-be26-540b000da652",
+              "name": "Facet counts.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "documents",
+                    "facets",
+                    ":facet"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "facet",
+                      "description": "(Required) Facet to aggregate by."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.federalregister.gov/api/v1",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) The document number.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "document_number"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) Comma-separated document numbers.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "document_numbers"
+    }
+  ],
+  "info": {
+    "_postman_id": "48b66fba-4a2d-44b3-b010-95f70ac4e3f0",
+    "name": "Office of the Federal Register Agencies Documents API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Search, browse and learn about the Federal Register. Federal Register 2.0 is the unofficial daily publication for rules, proposed rules, and notices of Federal agencies and organizations, as well as executive orders and other presidential documents.\n\nContact Support:\n Name: Office of the Federal Register",
+      "type": "text/plain"
+    }
+  }
+}

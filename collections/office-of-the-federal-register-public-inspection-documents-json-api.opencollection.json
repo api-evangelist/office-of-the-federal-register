@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Office of the Federal Register Agencies Public Inspection Documents.json API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Public Inspection Documents.json",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search Public Inspection Documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.federalregister.gov/api/v1/public-inspection-documents.json"
+          },
+          "docs": "Search documents currently on public inspection."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

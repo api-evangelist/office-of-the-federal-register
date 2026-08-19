@@ -1,0 +1,172 @@
+{
+  "item": [
+    {
+      "id": "4db1ac6d-8d78-4960-8f22-5868bbffc35c",
+      "name": "Documents.json",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a7105c7c-e909-461a-b4b0-223bb0024554",
+          "name": "Search Federal Register Documents",
+          "request": {
+            "name": "Search Federal Register Documents",
+            "description": {
+              "content": "Search and filter Federal Register documents (rules, proposed rules, notices, presidential documents).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "documents.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "<integer>",
+                  "description": "Number of results per page (max 1000)."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "Page number of results."
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "<string>",
+                  "description": "Order of results (relevance, newest, oldest, executive_order_number)."
+                },
+                {
+                  "disabled": false,
+                  "key": "conditions[term]",
+                  "value": "<string>",
+                  "description": "Full text search term."
+                },
+                {
+                  "disabled": false,
+                  "key": "conditions[publication_date][gte]",
+                  "value": "<date>",
+                  "description": "Publication date greater than or equal to (YYYY-MM-DD)."
+                },
+                {
+                  "disabled": false,
+                  "key": "conditions[publication_date][lte]",
+                  "value": "<date>",
+                  "description": "Publication date less than or equal to (YYYY-MM-DD)."
+                },
+                {
+                  "disabled": false,
+                  "key": "conditions[type][]",
+                  "value": "<string>",
+                  "description": "Document type (RULE, PRORULE, NOTICE, PRESDOCU)."
+                },
+                {
+                  "disabled": false,
+                  "key": "conditions[agencies][]",
+                  "value": "<string>",
+                  "description": "Agency slug filter."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "02fb9a15-7e0b-4aae-bcd3-70adb9cd294a",
+              "name": "A paginated list of Federal Register documents.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "documents.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "conditions[term]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "conditions[publication_date][gte]",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "conditions[publication_date][lte]",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "conditions[type][]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "conditions[agencies][]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.federalregister.gov/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "e65c3bf2-31d8-49e0-a0b3-35bf058d5e21",
+    "name": "Office of the Federal Register Agencies Documents.json API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Search, browse and learn about the Federal Register. Federal Register 2.0 is the unofficial daily publication for rules, proposed rules, and notices of Federal agencies and organizations, as well as executive orders and other presidential documents.\n\nContact Support:\n Name: Office of the Federal Register",
+      "type": "text/plain"
+    }
+  }
+}

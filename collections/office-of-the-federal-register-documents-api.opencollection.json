@@ -1,0 +1,75 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Office of the Federal Register Agencies Documents API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Documents",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fetch a Single Document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.federalregister.gov/api/v1/documents/:document_number.json",
+            "params": [
+              {
+                "name": "document_number",
+                "value": "",
+                "type": "path",
+                "description": "The document number."
+              }
+            ]
+          },
+          "docs": "Retrieve a single Federal Register document by its document number."
+        },
+        {
+          "info": {
+            "name": "Fetch Multiple Documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.federalregister.gov/api/v1/documents/:document_numbers.json",
+            "params": [
+              {
+                "name": "document_numbers",
+                "value": "",
+                "type": "path",
+                "description": "Comma-separated document numbers."
+              }
+            ]
+          },
+          "docs": "Retrieve multiple Federal Register documents by comma-separated document numbers."
+        },
+        {
+          "info": {
+            "name": "Document Counts By Facet",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.federalregister.gov/api/v1/documents/facets/:facet",
+            "params": [
+              {
+                "name": "facet",
+                "value": "",
+                "type": "path",
+                "description": "Facet to aggregate by."
+              }
+            ]
+          },
+          "docs": "Aggregate document counts grouped by a facet (daily, weekly, monthly, yearly, agency, topic, section, type, subtype)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
