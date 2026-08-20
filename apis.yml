@@ -2,6 +2,11 @@ aid: office-of-the-federal-register
 url: https://raw.githubusercontent.com/api-evangelist/office-of-the-federal-register/refs/heads/main/apis.yml
 name: Office of the Federal Register
 tags:
+  - Federal-Government
+  - Regulations
+  - Federal Register
+  - Executive Orders
+tags_raw:
   - Federal Government
   - Regulations
   - Federal Register
@@ -72,6 +77,8 @@ apis:
   humanURL: https://www.federalregister.gov/developers/documentation/api/v1
   baseURL: https://www.federalregister.gov/api/v1
   tags:
+  - Image
+  tags_raw:
   - Images
   properties:
   - type: OpenAPI
