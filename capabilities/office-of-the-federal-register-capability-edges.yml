@@ -1,0 +1,59 @@
+slug: office-of-the-federal-register
+provider: Office of the Federal Register
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Public Sector & Government
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 4
+edges:
+- tag: Documents
+  spec_file: office-of-the-federal-register-documents-api-openapi.yml
+  capability_id: BC-3210.60
+  capability_id_l1: BC-3210
+  capability_name: Legal Codification and Publication
+  confidence: 0.8
+  evidence: '"Fetch a Single Document" from the "daily publication for rules, proposed rules, and notices
+    of Federal agencies ... as well as executive orders and other presidential documents"'
+  reason: Retrieval of officially published regulatory and presidential instruments corresponds to official
+    gazette publication and maintenance of statutory/regulatory texts.
+- tag: Documents.json
+  spec_file: office-of-the-federal-register-documents-json-api-openapi.yml
+  capability_id: BC-3210.60
+  capability_id_l1: BC-3210
+  capability_name: Legal Codification and Publication
+  confidence: 0.8
+  evidence: '"Search Federal Register Documents" — publication "for rules, proposed rules, and notices
+    of Federal agencies"'
+  reason: Search over the official gazette of regulations and executive orders, i.e. access to published/codified
+    regulatory texts.
+- tag: Issues
+  spec_file: office-of-the-federal-register-issues-api-openapi.yml
+  capability_id: BC-3210.60
+  capability_id_l1: BC-3210
+  capability_name: Legal Codification and Publication
+  confidence: 0.75
+  evidence: GET /issues/{publication_date}.json getIssue 'Fetch a Federal Register Issue Table of Contents';
+    'the unofficial daily publication for rules, proposed rules, and notices of Federal agencies'
+  reason: The Federal Register is the US official gazette; retrieving a daily issue's table of contents
+    is access to officially published regulatory texts, matching Legal Codification and Publication (official
+    gazette publication). Some doubt because the API is read-only access rather than the drafting/compilation
+    process itself.
+- tag: Public Inspection Documents
+  spec_file: office-of-the-federal-register-public-inspection-documents-api-openapi.yml
+  capability_id: BC-3210.60
+  capability_id_l1: BC-3210
+  capability_name: Legal Codification and Publication
+  confidence: 0.7
+  evidence: GET /public-inspection-documents/current.json getCurrentPublicInspectionDocuments 'Fetch Current
+    Public Inspection Documents'
+  reason: Public inspection documents are agency rules and notices made publicly available ahead of official
+    Federal Register publication — part of the official publication pipeline for regulatory instruments,
+    i.e. Legal Codification and Publication. Confidence moderated because these are read endpoints on
+    a publication registry.

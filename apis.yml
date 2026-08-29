@@ -152,6 +152,9 @@ apis:
   - type: Documentation
     url: https://www.federalregister.gov/developers/documentation/api/v1
 common:
+  - type: CapabilityMap
+    url: capabilities/office-of-the-federal-register-capability-edges.yml
+    name: Office of the Federal Register Business Capability Map
   - type: AgenticAccess
     url: agentic-access/office-of-the-federal-register-agentic-access.yml
   - type: VulnerabilityDisclosure
