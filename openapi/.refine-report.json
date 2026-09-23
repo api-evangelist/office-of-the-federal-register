@@ -1,14 +1,7 @@
 {
   "provider": "office-of-the-federal-register",
   "sources": [
-    "office-of-the-federal-register-agencies-api-openapi.yml",
-    "office-of-the-federal-register-documents-api-openapi.yml",
-    "office-of-the-federal-register-documents-json-api-openapi.yml",
-    "office-of-the-federal-register-images-api-openapi.yml",
-    "office-of-the-federal-register-issues-api-openapi.yml",
-    "office-of-the-federal-register-public-inspection-documents-api-openapi.yml",
-    "office-of-the-federal-register-public-inspection-documents-json-api-openapi.yml",
-    "office-of-the-federal-register-suggested-searches-api-openapi.yml"
+    "_original/office-of-the-federal-register-openapi.yml"
   ],
   "outputs": [
     "office-of-the-federal-register-agencies-api-openapi.yml",
@@ -23,6 +16,40 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "office-of-the-federal-register-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "office-of-the-federal-register-openapi.yml: tagged paths GET /documents.json -> Documents.json",
+    "office-of-the-federal-register-openapi.yml: tagged paths GET /documents/{document_number}.json -> Documents",
+    "office-of-the-federal-register-openapi.yml: tagged paths GET /documents/{document_numbers}.json -> Documents",
+    "office-of-the-federal-register-openapi.yml: tagged paths GET /documents/facets/{facet} -> Documents",
+    "office-of-the-federal-register-openapi.yml: tagged paths GET /issues/{publication_date}.json -> Issues",
+    "office-of-the-federal-register-openapi.yml: tagged paths GET /public-inspection-documents.json -> Public Inspection Documents.json",
+    "office-of-the-federal-register-openapi.yml: tagged paths GET /public-inspection-documents/{document_number}.json -> Public Inspection Documents",
+    "office-of-the-federal-register-openapi.yml: tagged paths GET /public-inspection-documents/current.json -> Public Inspection Documents",
+    "office-of-the-federal-register-openapi.yml: tagged paths GET /agencies -> Agencies",
+    "office-of-the-federal-register-openapi.yml: tagged paths GET /agencies/{slug} -> Agencies",
+    "office-of-the-federal-register-openapi.yml: tagged paths GET /images/{identifier} -> Images",
+    "office-of-the-federal-register-openapi.yml: tagged paths GET /suggested_searches -> Suggested Searches",
+    "office-of-the-federal-register-openapi.yml: tagged paths GET /suggested_searches/{slug} -> Suggested Searches",
+    "office-of-the-federal-register-openapi.yml: declared missing tag: Agencies",
+    "office-of-the-federal-register-openapi.yml: declared missing tag: Documents",
+    "office-of-the-federal-register-openapi.yml: declared missing tag: Documents.json",
+    "office-of-the-federal-register-openapi.yml: declared missing tag: Images",
+    "office-of-the-federal-register-openapi.yml: declared missing tag: Issues",
+    "office-of-the-federal-register-openapi.yml: declared missing tag: Public Inspection Documents",
+    "office-of-the-federal-register-openapi.yml: declared missing tag: Public Inspection Documents.json",
+    "office-of-the-federal-register-openapi.yml: declared missing tag: Suggested Searches",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "office-of-the-federal-register-agencies-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "office-of-the-federal-register-documents-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "office-of-the-federal-register-documents-json-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "office-of-the-federal-register-images-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "office-of-the-federal-register-issues-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "office-of-the-federal-register-public-inspection-documents-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "office-of-the-federal-register-public-inspection-documents-json-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "office-of-the-federal-register-suggested-searches-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

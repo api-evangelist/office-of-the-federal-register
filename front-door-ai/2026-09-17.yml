@@ -1,0 +1,25 @@
+# Front Door AI Index — office-of-the-federal-register — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: office-of-the-federal-register
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: www.federalregister.gov
+  final_host: www.federalregister.gov
+  ownership: shared
+  owner: federal-register
+  shares_host_with:
+  - federal-register
+  inherited_from: null
+  verdict: silent
+  score: null
+  host_score: 0
+  density: null
+  words: 944
+  tiers:
+    agentic: 0
+    core: 0
+    model: 0
+  ambiguous: 0
+  top_terms: null
