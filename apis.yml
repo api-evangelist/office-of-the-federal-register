@@ -2,7 +2,7 @@ aid: office-of-the-federal-register
 url: https://raw.githubusercontent.com/api-evangelist/office-of-the-federal-register/refs/heads/main/apis.yml
 name: Office of the Federal Register
 tags:
-  - Federal-Government
+  - Federal Government
   - Regulations
   - Federal Register
   - Executive Orders
@@ -11,6 +11,7 @@ tags_raw:
   - Regulations
   - Federal Register
   - Executive Orders
+  - Federal-Government
 kind: contract
 deliveryModel:
   model: unknown
